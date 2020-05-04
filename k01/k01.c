@@ -3,8 +3,8 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val, double i,double ave);
-extern double var_online(double ave,double val,double i,double square_ave);
+extern double ave_online(double val, int i,double ave);
+extern double var_online(double ave,double val,int i,double square_ave);
 
 int main(void)
 {
@@ -31,33 +31,30 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        i = i + 1.0;
+        i = i + 1;
         ret = ave_online(val,i,ave);
         ans = var_online(ave,val,i,square_ave);
+        square_ave = ((i-1)*square_ave+pow(val,2.0))/i;
+        ave = ret;
     }
-
-    printf("%f\n",ret);
-    printf("%f\n",ans);
+    double mans = i/(i-1) * ans;
+    printf("標本平均：%f\n",ret);
+    printf("標本分散：%f\n",ans);
+    printf("母集団平均推定値；%f\n",ret);
+    printf("母集団分散推定値：%f\n",mans);
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
     }
-
-
     return 0;
-
-
 }
 
-double ave_online(double val,double i,double ave){
-    return ave = ((i-1.0)*ave+val)/i;
+double ave_online(double val,int i,double ave){
+    return ave = ((i-1)*ave+val)/i;
 }
 
-double var_online(double ave,double val,double i,double square_ave){
-    ave = ((i-1.0)*ave+val)/i;
-    square_ave = ((i-1.0)*square_ave+pow(val,2.0))/i;
+double var_online(double ave,double val,int i,double square_ave){
+    ave = ((i-1)*ave+val)/i;
     return square_ave - pow(ave,2.0);
-
-
 }
