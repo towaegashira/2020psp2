@@ -71,6 +71,17 @@ l.59: square_aveからaveの二乗を引いて、その答えを返す
 
 あいうえお
 
+## 入出力結果
+
+```
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+sample mean：
+sample variance：
+population mean (estimated)：
+population variance (estimated)：
+```
+
 ## 修正履歴
 
 - [l.6-7](k01#L6-7),[l.53](k01.c#L53),[l.56](k01.c#L56): 引数の`i`は整数以外が入力されることはありますか．無いなら`int`にしてください．
