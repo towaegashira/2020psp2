@@ -36,6 +36,7 @@ int main(void)
         ans = var_online(ave,val,i,square_ave);
         square_ave = ((i-1)*square_ave+pow(val,2.0))/i;
         ave = ret;
+        printf("[%d] var:%f, sq_ave:%f, ave:%f\n", i,ans,square_ave,ave);
     }
     double mans = i/(i-1) * ans;
     printf("標本平均：%f\n",ret);
