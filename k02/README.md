@@ -20,12 +20,58 @@ aa83988848 薗田光太郎
 と計算できる．<img src="/k02/tex/2ec6e630f199f589a2402fdf3e0289d5.svg?invert_in_darkmode&sanitize=true" align=middle width=8.270567249999992pt height=14.15524440000002pt/>は仮定した確率密度関数で，<img src="/k02/tex/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode&sanitize=true" align=middle width=8.17352744999999pt height=22.831056599999986pt/>はその母数．<img src="/k02/tex/2ec6e630f199f589a2402fdf3e0289d5.svg?invert_in_darkmode&sanitize=true" align=middle width=8.270567249999992pt height=14.15524440000002pt/>が正規分布なら，<img src="/k02/tex/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode&sanitize=true" align=middle width=8.17352744999999pt height=22.831056599999986pt/>は，平均<img src="/k02/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>と分散<img src="/k02/tex/e6718aa5499c31af3ff15c3c594a7854.svg?invert_in_darkmode&sanitize=true" align=middle width=16.535428799999988pt height=26.76175259999998pt/>である．
 
 ## ソースコードの説明
+l.26:データファイル名を入力させ、fnameに格納
+
+l.27:　入力させた文字列の最後にエンターキーが入っているので、fname の文字列の最後をヌル文字'\0'に変換
+
+l.28:　 fname を確認
+
+l.30: fname で指定したファイルの先頭アドレスをファイルポインタ fp に読み込む
+
+l.31: もし fp が NULL だったときは,ファイルを開けなかったので,即座にプログラムを終了
+
+l.37: ファイルを 1 行ずつ buf に読み込む. もし読み込みに成功する限り以下を繰り返す
+
+l.38: buf から数値文字列を実数として val に読み込む
+
+l.42:自作のp_normA関数を実行
+
+l.43:Aの尤度をL_Aに格納
+
+l.45:自作のp_normB関数を実行
+
+l.46:Aの尤度をL_Bに格納
+
+l.49:ファイルを閉じる.　閉じれないときは,即座にプログラムを終了
+
+l.54:Aの尤度を出力
+
+l.55:Bの尤度を出力
+
+l.62:自作の関数p_stdnormの処理を以下の通り行う
+
+l.64:2πの平方根を分母、eを’zの2乗を2で割った値’乗’ものを分子として計算する
+
+l.67:自作のLikelihoodA関数の処理を以下の通り実行
+
+l.69:それまでの値から算出されるAの尤度に新たなvalの値から求まる確率密度をかけて、その答えをAの尤度として更新する
+
+l.71:自作のLikelihoodB関数の処理を以下の通り実行
+
+l.73:それまでの値から算出されるBの尤度に新たなvalの値から求まる確率密度をかけて、その答えをBの尤度として更新する
+
+
+
+
+
 
 ## 入出力結果
 
 ```
-Likelihood for A：
-Likelihood for B：
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+L_A: 0.000006
+L_B: 0.000002
 ```
 
 ## 修正履歴
