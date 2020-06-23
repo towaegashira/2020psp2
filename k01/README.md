@@ -107,3 +107,7 @@ the filename of sample: ../sample/heights_male.csv
 - レポートに入出力結果を書く欄を作りました．実際の実行結果をコピペしてください．元々書いてあるものは消していいです．
 - コンパイル実行したところ，分散，母集団分散推定値が計算間違いです．var_online の関数が間違っています．また，i/(i-1)は int/int なので，1 となり mans と ans は全く同じ値になります．演算の順番を工夫してください．
 - 変数名を工夫してください．ret, ans, mans は意味がわかりません．ret は return，ans は answer だと思いますが曖昧です．
+
+
+[comment #20200617 moto]
+-OKです。
