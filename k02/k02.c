@@ -1,4 +1,8 @@
 #define _USE_MATH_DEFINES
+#define A_AVE 170.8
+#define A_VAR 5.43
+#define B_AVE 169.7
+#define B_VAR 5.5
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,10 +18,6 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    double A_ave=170.8;
-    double A_var=pow(5.43,2);
-    double B_ave=169.7;
-    double B_var=pow(5.5,2);
     double A_z,B_z;
     double z;
     double L_A=1.0;
@@ -36,8 +36,8 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        A_z=(val-A_ave)/sqrt(A_var);
-        B_z=(val-B_ave)/sqrt(B_var);
+        A_z=(val-A_AVE)/A_VAR;
+        B_z=(val-B_AVE)/B_VAR;
         z=A_z;
         double p_normA=p_stdnorm(z);
         L_A=LikelihoodA(p_normA,L_A);
