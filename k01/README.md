@@ -87,6 +87,7 @@ l.57: square_ave から ave の二乗を引いて、その答えを返す
 
 ## 入出力結果
 
+```
 $ ./k01
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv    
@@ -102,6 +103,7 @@ the filename of sample: ../sample/heights_male.csv
 標本分散：25.361711
 母集団平均推定値；173.888750
 母集団分散推定値：28.984812
+```
 
 ## 修正履歴
 
@@ -122,3 +124,6 @@ the filename of sample: ../sample/heights_male.csv
 
 [comment #20200617 moto]
 -OKです。
+
+[comment #20200707 sonoda]
+- 課題1の完了を確認しました（薗田）
