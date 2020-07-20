@@ -93,3 +93,6 @@ No data
 
 [comment #20200720 moto]
 - OKです．
+
+[comment #20200720 sonoda]
+- 課題4の完了を確認しました
